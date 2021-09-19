@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p></p>
+    <p>123</p>
   </div>
 </template>
 
@@ -9,5 +9,5 @@ export default {};
 </script>
 
 <style lang="scss">
-@import "@/pagesStyle/Main.scss";
+ @import "@/styles/pages/Main.scss";
 </style>
