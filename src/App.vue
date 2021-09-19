@@ -7,8 +7,7 @@ export default {};
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&display=swap");
+@import "@/styles/global/general.scss";
 
 #app {
   font-family: "Abel", "Abhaya Libre";
@@ -16,5 +15,6 @@ export default {};
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-color: $color-red;
 }
 </style>
