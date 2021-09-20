@@ -1,1 +1,9 @@
 @import "@/styles/global/general.scss";
+
+.btn.glossy {
+  background-color: rgb(0, 180, 0);
+
+  .notranslate.material-icons.q-icon{
+    color: rgb(255, 255, 255);
+  }
+}
