@@ -4,24 +4,26 @@
       <img src="@/assets/img/logo.svg" alt="logo" />
     </div>
 
-    <ul class="menu">
-      <li>Box Office</li>
-      <li>Media</li>
-      <li>Society</li>
-      <li>Ratings</li>
-      <li>DVD & Blu-Ray</li>
-    </ul>
+    <nav>
+      <ul class="menu">
+        <li>Box Office</li>
+        <li>Media</li>
+        <li>Society</li>
+        <li>Ratings</li>
+        <li>DVD & Blu-Ray</li>
+      </ul>
+    </nav>
 
     <div class="search">
       <input
-        v-if="input"
+        v-show="input"
         @blur="input = false"
-        class="search-input"
+        class="search__input"
         type="text"
       />
       <img
         @click="input = !input"
-        class="search-img"
+        class="search__img"
         src="@/assets/img/icon-search.svg"
         alt="icon-search"
       />
