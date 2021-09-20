@@ -1,11 +1,14 @@
 <template>
   <div>
-    <q-btn round class="btn" glossy icon="local_grocery_store" />
+    <Header />
   </div>
 </template>
 
 <script>
-export default {};
+import Header from "@/components/Header/Header";
+export default {
+  components: { Header },
+};
 </script>
 
 <style lang="scss">
