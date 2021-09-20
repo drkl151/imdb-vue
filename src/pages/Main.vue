@@ -1,11 +1,25 @@
 <template>
   <div>
-    <q-btn round class="btn" glossy icon="local_grocery_store" />
+    <q-btn @click="changeFilm('21312')" round class="btn" glossy icon="local_grocery_store" />
+    <p>{{ films }}</p>
   </div>
 </template>
 
+
 <script>
-export default {};
+import { mapGetters, mapMutations } from "vuex";
+export default {
+  methods: {
+    ...mapMutations({
+      changeFilm: "changeFilm",
+    }),
+  },
+  computed: {
+    ...mapGetters({
+      films: "film",
+    }),
+  },
+};
 </script>
 
 <style lang="scss">
