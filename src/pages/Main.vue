@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>123</p>
+    <q-btn round class="btn" glossy icon="local_grocery_store" />
   </div>
 </template>
 
@@ -9,5 +9,5 @@ export default {};
 </script>
 
 <style lang="scss">
- @import "@/styles/pages/Main.scss";
+@import "@/styles/pages/Main.scss";
 </style>
