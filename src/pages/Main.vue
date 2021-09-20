@@ -1,19 +1,23 @@
 <template>
   <div>
-    <q-btn @click="changeFilm('21312')" round class="btn" glossy icon="local_grocery_store" />
-    <p>{{ films }}</p>
+    <Header />
   </div>
 </template>
 
 
 <script>
+import Header from "@/components/Header/Header";
 import { mapGetters, mapMutations } from "vuex";
+
 export default {
+  components: { Header },
+
   methods: {
     ...mapMutations({
       changeFilm: "changeFilm",
     }),
   },
+  
   computed: {
     ...mapGetters({
       films: "film",

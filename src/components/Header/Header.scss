@@ -1,0 +1,46 @@
+@import "@/styles/global/general.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  max-width: 1252px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  padding: 0 50px 0 20px;
+
+  .logo {
+    cursor: pointer;
+  }
+
+  .menu {
+    display: flex;
+    margin: 0;
+    height: 80px;
+
+    li {
+      font-size: 16px;
+      list-style: none;
+      height: 80px;
+      padding: 30px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $c-ginger;
+        color: $c-white;
+      }
+    }
+  }
+
+  .search {
+    cursor: pointer;
+    .search__img {
+      position: relative;
+      top: 3px;
+    }
+  }
+}
