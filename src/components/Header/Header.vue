@@ -13,17 +13,22 @@
         <li>DVD & Blu-Ray</li>
       </ul>
     </nav>
-
     <div class="search">
-      <input
-        v-show="input"
-        @blur="input = false"
-        class="search__input"
-        type="text"
-      />
+      <q-input
+        v-if="inputIsOpen"
+        ref="searchInput"
+        @blur="closeInput"
+        autofocus
+        color="black"
+        filled
+        v-model="searchText"
+        label="Search"
+      >
+      </q-input>
+
       <img
-        @click="input = !input"
-        class="search__img"
+        @click="checkInput"
+        class="search__icon"
         src="@/assets/img/icon-search.svg"
         alt="icon-search"
       />
@@ -35,8 +40,28 @@
 export default {
   data() {
     return {
-      input: false,
+      searchText: "",
+      inputIsOpen: false,
     };
+  },
+
+  methods: {
+    checkInput() {
+      if (!this.inputIsOpen) {
+        this.inputIsOpen = true;
+      }
+    },
+    closeInput() {
+      if (!this.searchText) {
+        setTimeout(() => {
+          this.$refs.searchInput.$el.classList.add("remove-input");
+        }, 0);
+
+        setTimeout(() => {
+          this.inputIsOpen = this.searchText ? true : false;
+        }, 500);
+      }
+    },
   },
 };
 </script>
