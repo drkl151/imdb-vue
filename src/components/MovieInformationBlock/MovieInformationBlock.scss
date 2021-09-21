@@ -1,0 +1,33 @@
+@import "@/styles/global/general.scss";
+
+.movie-information-block {
+  font-family: Abhaya Libre;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.0001) 47.96%, rgba(23, 23, 23, 0.750368) 100%),
+    url("../../assets/img-movie-information-block.png");
+  height: 368px;
+  width: 252px;
+  display: flex;
+  align-items: flex-end;
+
+  .text-block {
+    padding: 0 21px;
+    margin: 0 0 18px 0;
+
+    &__movie-title {
+      margin: 0;
+      line-height: 21px;
+      font-weight: bold;
+      color: $c-white;
+      font-size: 18px;
+    }
+
+    &__movie-genre {
+      margin: 0;
+      line-height: 17px;
+      padding-top: 6px;
+      font-weight: bold;
+      color: $c-pale_white;
+      font-size: 14px;
+    }
+  }
+}
