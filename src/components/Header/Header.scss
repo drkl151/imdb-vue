@@ -44,9 +44,33 @@
     display: flex;
     justify-content: flex-end;
 
-    &__img {
+    .q-field--filled .q-field__control {
+      flex-direction: row-reverse;
       position: relative;
-      top: 3px;
+      left: 48px;
+      animation: input-appeared 0.5s linear 1 forwards;
+
+      .q-placeholder {
+        font: 1.2em "Fira Sans", sans-serif;
+      }
     }
+
+    &__icon {
+      position: relative;
+      top: -2px;
+    }
+  }
+}
+
+.remove-input {
+  animation: input-appeared 0.5s linear 1 reverse forwards;
+}
+
+@keyframes input-appeared {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
