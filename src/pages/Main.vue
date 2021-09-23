@@ -1,7 +1,13 @@
 <template>
   <div>
     <Header />
-    <MovieInformationBlock />
+    <MovieInformationBlock
+      v-for="film in films"
+      :key="film.id"
+      :title="film.title"
+      :genre="film.genre"
+      :img="film.img"
+    />
   </div>
 </template>
 
@@ -22,7 +28,7 @@ export default {
 
   computed: {
     ...mapGetters({
-      films: "film",
+      films: "films",
     }),
   },
 };
