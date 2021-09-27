@@ -1,6 +1,6 @@
 <template>
-  <div class="movie-information-block">
-    <img class="movie-information-block__movie-img" :src="img" :alt="title" />
+  <div class="movie-poster">
+    <img class="movie-poster__movie-img" :src="img" :alt="title" />
     <div class="information-block">
       <div class="information-block__text-info">
         <img
@@ -10,9 +10,11 @@
         <p>Information</p>
       </div>
     </div>
-    <div class="text-block">
-      <h2 class="text-block__movie-title">{{ title }}</h2>
-      <p class="text-block__movie-genre">{{ mainGenres }}</p>
+    <div class="text-block-wrapper">
+      <div class="text-block">
+        <h2 class="text-block__movie-title">{{ title }}</h2>
+        <p class="text-block__movie-genre">{{ mainGenres }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -39,12 +41,12 @@ export default {
 
   computed: {
     mainGenres() {
-      return this.genre.slice(0, 3).join(', ');
+      return this.genre.slice(0, 3).join(", ");
     },
   },
 };
 </script>
 
 <style lang="scss">
-@import "MovieInformationBlock.scss";
+@import "MoviePoster.scss";
 </style>

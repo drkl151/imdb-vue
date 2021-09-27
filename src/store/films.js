@@ -14,7 +14,56 @@ const films = {
       genre: ['Adventure', 'family', 'fantasy'],
       img: fantasticBeasts,
       id: 2,
-    }]
+    },
+    {
+      title: 'Assassins Creed',
+      genre: ['Action', 'adventure', 'fantasy','adventure', 'fantasy',],
+      img: assasinImg,
+      id: 3,
+    },
+    {
+      title: 'Fantastic Beasts and Where to Find Them',
+      genre: ['Adventure', 'family', 'fantasy'],
+      img: fantasticBeasts,
+      id: 4,
+    },
+    {
+      title: 'Assassins Creed',
+      genre: ['Action', 'adventure', 'fantasy','adventure', 'fantasy',],
+      img: assasinImg,
+      id: 5,
+    },
+    {
+      title: 'Fantastic Beasts and Where to Find Them',
+      genre: ['Adventure', 'family', 'fantasy'],
+      img: fantasticBeasts,
+      id: 6,
+    },
+    {
+      title: 'Assassins Creed',
+      genre: ['Action', 'adventure', 'fantasy','adventure', 'fantasy',],
+      img: assasinImg,
+      id: 7,
+    },
+    {
+      title: 'Fantastic Beasts and Where to Find Them',
+      genre: ['Adventure', 'family', 'fantasy'],
+      img: fantasticBeasts,
+      id: 8,
+    },
+    {
+      title: 'Assassins Creed',
+      genre: ['Action', 'adventure', 'fantasy','adventure', 'fantasy',],
+      img: assasinImg,
+      id: 9,
+    },
+    {
+      title: 'Fantastic Beasts and Where to Find Them',
+      genre: ['Adventure', 'family', 'fantasy'],
+      img: fantasticBeasts,
+      id: 10,
+    },
+  ]
   },
   mutations: {
   },
