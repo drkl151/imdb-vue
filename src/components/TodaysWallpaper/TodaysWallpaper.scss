@@ -1,0 +1,26 @@
+@import "@/styles/global/general.scss";
+
+.todays-wallpaper {
+  width: 406px;
+  height: 101px;
+  display: flex;
+  align-items: flex-end;
+  cursor: pointer;
+
+  &__img {
+    position: relative;
+    z-index: -1;
+  }
+
+  &__text {
+    color: $c-white;
+    margin: 0 0 8px 12px;
+    padding: 0;
+    font-family: Abhaya Libre;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+}
