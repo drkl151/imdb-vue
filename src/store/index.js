@@ -1,15 +1,16 @@
 import { createStore } from 'vuex'
-import films from './films.js'
+import moviesPlayingNow from './moviesPlayingNow.js'
+import genres from './genres.js'
+import todaysWallpapers from './todaysWallpapers.js'
 
 export default createStore({
   state: {
   },
   mutations: {
-  
   },
   actions: {
   },
   modules: {
-    films
+    moviesPlayingNow, genres, todaysWallpapers
   }
 })

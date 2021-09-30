@@ -2,29 +2,22 @@
   <div
     class="todays-wallpaper"
     :style="{
-      background: backgroundTodaysWallpaper,
+      background: `url(http://image.tmdb.org/t/p/w500${backgroundImg})`,
+      backgroundSize: 'cover',
+      backgroundPosition: '0 -25px',
     }"
   >
-    <h2 class="todays-wallpaper__text">{{titleMovie}}</h2>
+    <div class="todays-wallpaper__linear-gradient"></div>
+    <h2 class="todays-wallpaper__text">{{ titleMovie }}</h2>
   </div>
 </template>
 
 <script>
 export default {
   data() {
-    return {
-  
-    };
+    return {};
   },
-  computed: {
-    backgroundTodaysWallpaper() {
-      return ` linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.0001) 37.41%,
-          rgba(23, 23, 23, 0.917403) 100%
-        ), url(${this.backgroundImg})`;
-    },
-  },
+
   props: {
     backgroundImg: {
       type: String,

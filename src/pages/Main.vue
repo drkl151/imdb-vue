@@ -2,19 +2,25 @@
   <div>
     <Header />
     <!-- <MoviePoster
-      v-for="film in films"
-      :key="film.id"
+      v-for="film in modifiedMoviesPlayingNow"
+      :key="film.imdb_id"
       :title="film.title"
-      :genre="film.genre"
-      :img="film.img"
+      :genre="film.genre_ids"
+      :img="film.poster_path"
     /> -->
+
     <!-- <MoviePosterSlider /> -->
+
     <TodaysWallpaper
-      backgroundImg="https://i0.wp.com/itc.ua/wp-content/uploads/2016/07/Stranger_Things_i03.jpg?fit=770%2C546&quality=100&strip=all&ssl=1"
-      titleMovie="Stranger Things"
+      v-for="todaysWallpaper in todaysWallpapers"
+      :key="todaysWallpaper.id"
+      :backgroundImg="todaysWallpaper.backdrop_path"
+      :titleMovie="todaysWallpaper.title"
     />
+
+    <!-- 
     <SideHeader title="NOW PLAYING" backgroundColor="#2998e2" />
-    <SideHeader title="TRAILERS" backgroundColor="#EA4737" />
+    <SideHeader title="TRAILERS" backgroundColor="#EA4737" /> -->
   </div>
 </template>
 
@@ -25,9 +31,15 @@ import SideHeader from "@/components/SideHeader/SideHeader";
 import MoviePoster from "@/components/MoviePoster/MoviePoster";
 import MoviePosterSlider from "@/containers/MoviePosterSlider/MoviePosterSlider";
 import TodaysWallpaper from "@/components/TodaysWallpaper/TodaysWallpaper";
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
+  data() {
+    return {
+      modifiedMoviesPlayingNow: [],
+    };
+  },
+
   components: {
     Header,
     MoviePoster,
@@ -36,9 +48,36 @@ export default {
     TodaysWallpaper,
   },
 
+  methods: {
+    ...mapActions([
+      "GET_FILMS_FROM_API",
+      "GET_GENRE_FILMS_FROM_API",
+      "GET_TODAYS_WALLPAPERS_FROM_API",
+    ]),
+  },
+
+  mounted() {
+    this.GET_FILMS_FROM_API();
+    this.GET_GENRE_FILMS_FROM_API();
+    this.GET_TODAYS_WALLPAPERS_FROM_API();
+  },
+
+  watch: {
+    genres() {
+      this.modifiedMoviesPlayingNow = this.moviesPlayingNow.map((movie) => {
+        const modifiedGenres = movie.genre_ids.map(
+          (id) => this.genres.filter((genre) => genre.id === id)[0].name
+        );
+        return { ...movie, genre_ids: modifiedGenres };
+      });
+    },
+  },
+
   computed: {
     ...mapGetters({
-      films: "films",
+      moviesPlayingNow: "moviesPlayingNow",
+      genres: "genres",
+      todaysWallpapers: "todaysWallpapers",
     }),
   },
 };
