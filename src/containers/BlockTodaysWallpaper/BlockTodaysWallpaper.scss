@@ -1,0 +1,16 @@
+@import "@/styles/global/general.scss";
+
+.block-todays-wallpaper {
+  box-sizing: content-box;
+  height: 379px;
+  width: 407px;
+  padding: 0 0 10px 0;
+
+  &__title {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0px;
+    margin: 0 0 14px 0;
+  }
+}
