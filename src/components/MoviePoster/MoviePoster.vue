@@ -1,6 +1,6 @@
 <template>
   <div class="movie-poster">
-    <img class="movie-poster__movie-img" :src="img" :alt="title" />
+    <img class="movie-poster__movie-img" :src="`http://image.tmdb.org/t/p/w300${img}`" :alt="title" />
     <div class="information-block">
       <div class="information-block__text-info">
         <img
