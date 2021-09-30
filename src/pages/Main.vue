@@ -11,16 +11,10 @@
 
     <!-- <MoviePosterSlider /> -->
 
-    <TodaysWallpaper
-      v-for="todaysWallpaper in todaysWallpapers"
-      :key="todaysWallpaper.id"
-      :backgroundImg="todaysWallpaper.backdrop_path"
-      :titleMovie="todaysWallpaper.title"
-    />
-
     <!-- 
     <SideHeader title="NOW PLAYING" backgroundColor="#2998e2" />
     <SideHeader title="TRAILERS" backgroundColor="#EA4737" /> -->
+    <BlockTodaysWallpaper/>
   </div>
 </template>
 
@@ -31,6 +25,7 @@ import SideHeader from "@/components/SideHeader/SideHeader";
 import MoviePoster from "@/components/MoviePoster/MoviePoster";
 import MoviePosterSlider from "@/containers/MoviePosterSlider/MoviePosterSlider";
 import TodaysWallpaper from "@/components/TodaysWallpaper/TodaysWallpaper";
+import BlockTodaysWallpaper from "@/containers/BlockTodaysWallpaper/BlockTodaysWallpaper";
 import { mapGetters, mapActions } from "vuex";
 
 export default {
@@ -46,20 +41,19 @@ export default {
     SideHeader,
     MoviePosterSlider,
     TodaysWallpaper,
+    BlockTodaysWallpaper,
   },
 
   methods: {
     ...mapActions([
       "GET_FILMS_FROM_API",
       "GET_GENRE_FILMS_FROM_API",
-      "GET_TODAYS_WALLPAPERS_FROM_API",
     ]),
   },
 
   mounted() {
     this.GET_FILMS_FROM_API();
     this.GET_GENRE_FILMS_FROM_API();
-    this.GET_TODAYS_WALLPAPERS_FROM_API();
   },
 
   watch: {
@@ -77,7 +71,6 @@ export default {
     ...mapGetters({
       moviesPlayingNow: "moviesPlayingNow",
       genres: "genres",
-      todaysWallpapers: "todaysWallpapers",
     }),
   },
 };
