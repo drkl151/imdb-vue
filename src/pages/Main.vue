@@ -11,10 +11,12 @@
 
     <!-- <MoviePosterSlider /> -->
 
+    <SignedImage title="Keanu Reeves" :img='fantastic'/>
+
     <!-- 
     <SideHeader title="NOW PLAYING" backgroundColor="#2998e2" />
     <SideHeader title="TRAILERS" backgroundColor="#EA4737" /> -->
-    <BlockTodaysWallpaper/>
+    <!-- <BlockTodaysWallpaper/> -->
   </div>
 </template>
 
@@ -26,12 +28,15 @@ import MoviePoster from "@/components/MoviePoster/MoviePoster";
 import MoviePosterSlider from "@/containers/MoviePosterSlider/MoviePosterSlider";
 import TodaysWallpaper from "@/components/TodaysWallpaper/TodaysWallpaper";
 import BlockTodaysWallpaper from "@/containers/BlockTodaysWallpaper/BlockTodaysWallpaper";
+import SignedImage from "@/components/SignedImage/SignedImage";
 import { mapGetters, mapActions } from "vuex";
+import fantastic from '../assets/fantastic.png'
 
 export default {
   data() {
     return {
       modifiedMoviesPlayingNow: [],
+      fantastic
     };
   },
 
@@ -42,6 +47,7 @@ export default {
     MoviePosterSlider,
     TodaysWallpaper,
     BlockTodaysWallpaper,
+    SignedImage,
   },
 
   methods: {
