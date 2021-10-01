@@ -17,11 +17,10 @@
     />
 
     <BlockSignedImage
-      title="Sea on Netflix"
+      title="Popular TV shows"
       redirectLink="Sea all"
-      :dataArray="modifiedMoviesPlayingNow.slice(0, 5)"
+      :dataArray="popularTvShows"
     />
-
     <!-- 
     <SideHeader title="NOW PLAYING" backgroundColor="#2998e2" />
     <SideHeader title="TRAILERS" backgroundColor="#EA4737" /> -->
@@ -62,6 +61,7 @@ export default {
       "GET_FILMS_FROM_API",
       "GET_GENRE_FILMS_FROM_API",
       "GET_POPULAR_ACTORS_FROM_API",
+      "GET_POPULAR_TV_SHOWS_FROM_API",
     ]),
   },
 
@@ -69,6 +69,7 @@ export default {
     this.GET_FILMS_FROM_API();
     this.GET_GENRE_FILMS_FROM_API();
     this.GET_POPULAR_ACTORS_FROM_API();
+    this.GET_POPULAR_TV_SHOWS_FROM_API();
   },
 
   watch: {
@@ -87,6 +88,7 @@ export default {
       moviesPlayingNow: "moviesPlayingNow",
       genres: "genres",
       popularActors: "popularActors",
+      popularTvShows: "popularTvShows",
     }),
   },
 };

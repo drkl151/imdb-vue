@@ -21,13 +21,9 @@ const popularActors = {
       };
 
       axios.request(actors).then(function (response) {
-        const randomPopularActors = [];
-
-        for (let i = 0; i < 5; i++) {
-          let idx = Math.floor(Math.random() * response.data.results.length);
-          randomPopularActors.push(response.data.results[idx]);
-          response.data.results.splice(idx, 1);
-        }
+        const randomPopularActors = response.data.results
+          .sort(() => 0.5 - Math.random())
+          .slice(0, 5);
         commit('SET_POPULAR_ACTORS_TO_STATE', randomPopularActors)
       }).catch(function (error) {
         console.error(error);
