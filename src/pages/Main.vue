@@ -10,24 +10,17 @@
     /> -->
 
     <!-- <MoviePosterSlider /> -->
-    <BlockSignedImage title="Popular actors" redirectLink="Sea all actors">
-      <SignedImage
-        v-for="popularActor in popularActors"
-        :key="popularActor.id"
-        :title="popularActor.name"
-        :img="`http://image.tmdb.org/t/p/w300${popularActor.profile_path}`"
-      />
-    </BlockSignedImage>
+    <BlockSignedImage
+      title="Popular actors"
+      redirectLink="Sea all actors"
+      :dataArray="popularActors"
+    />
 
-    <BlockSignedImage title="Sea on Netflix" redirectLink="Sea all">
-      <SignedImage
-        v-for="film in modifiedMoviesPlayingNow.slice(0, 5)"
-        :key="film.id"
-        :title="film.title"
-        :img="`http://image.tmdb.org/t/p/w300${film.poster_path}`"
-      />
-    </BlockSignedImage>
-
+    <BlockSignedImage
+      title="Sea on Netflix"
+      redirectLink="Sea all"
+      :dataArray="modifiedMoviesPlayingNow.slice(0, 5)"
+    />
 
     <!-- 
     <SideHeader title="NOW PLAYING" backgroundColor="#2998e2" />
@@ -45,7 +38,6 @@ import MoviePosterSlider from "@/containers/MoviePosterSlider/MoviePosterSlider"
 import TodaysWallpaper from "@/components/TodaysWallpaper/TodaysWallpaper";
 import BlockTodaysWallpaper from "@/containers/BlockTodaysWallpaper/BlockTodaysWallpaper";
 import BlockSignedImage from "@/containers/BlockSignedImage/BlockSignedImage";
-import SignedImage from "@/components/SignedImage/SignedImage";
 import { mapGetters, mapActions } from "vuex";
 
 export default {
@@ -61,7 +53,6 @@ export default {
     SideHeader,
     MoviePosterSlider,
     TodaysWallpaper,
-    SignedImage,
     BlockTodaysWallpaper,
     BlockSignedImage,
   },
