@@ -1,0 +1,21 @@
+@import "@/styles/global/general.scss";
+
+.block-signed-image {
+  width: 413px;
+
+
+  &__header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .header__title {
+      margin: 0 0 14px 0;
+    }
+  }
+
+  .wrapper-signed-image {
+    display: flex;
+  }
+
+}

@@ -10,8 +10,24 @@
     /> -->
 
     <!-- <MoviePosterSlider /> -->
+    <BlockSignedImage title="Popular actors" redirectLink="Sea all actors">
+      <SignedImage
+        v-for="popularActor in popularActors"
+        :key="popularActor.id"
+        :title="popularActor.name"
+        :img="`http://image.tmdb.org/t/p/w300${popularActor.profile_path}`"
+      />
+    </BlockSignedImage>
 
-    <SignedImage title="Keanu Reeves" :img='fantastic'/>
+    <BlockSignedImage title="Sea on Netflix" redirectLink="Sea all">
+      <SignedImage
+        v-for="film in modifiedMoviesPlayingNow.slice(0, 5)"
+        :key="film.id"
+        :title="film.title"
+        :img="`http://image.tmdb.org/t/p/w300${film.poster_path}`"
+      />
+    </BlockSignedImage>
+
 
     <!-- 
     <SideHeader title="NOW PLAYING" backgroundColor="#2998e2" />
@@ -28,15 +44,14 @@ import MoviePoster from "@/components/MoviePoster/MoviePoster";
 import MoviePosterSlider from "@/containers/MoviePosterSlider/MoviePosterSlider";
 import TodaysWallpaper from "@/components/TodaysWallpaper/TodaysWallpaper";
 import BlockTodaysWallpaper from "@/containers/BlockTodaysWallpaper/BlockTodaysWallpaper";
+import BlockSignedImage from "@/containers/BlockSignedImage/BlockSignedImage";
 import SignedImage from "@/components/SignedImage/SignedImage";
 import { mapGetters, mapActions } from "vuex";
-import fantastic from '../assets/fantastic.png'
 
 export default {
   data() {
     return {
       modifiedMoviesPlayingNow: [],
-      fantastic
     };
   },
 
@@ -46,20 +61,23 @@ export default {
     SideHeader,
     MoviePosterSlider,
     TodaysWallpaper,
-    BlockTodaysWallpaper,
     SignedImage,
+    BlockTodaysWallpaper,
+    BlockSignedImage,
   },
 
   methods: {
     ...mapActions([
       "GET_FILMS_FROM_API",
       "GET_GENRE_FILMS_FROM_API",
+      "GET_POPULAR_ACTORS_FROM_API",
     ]),
   },
 
   mounted() {
     this.GET_FILMS_FROM_API();
     this.GET_GENRE_FILMS_FROM_API();
+    this.GET_POPULAR_ACTORS_FROM_API();
   },
 
   watch: {
@@ -77,6 +95,7 @@ export default {
     ...mapGetters({
       moviesPlayingNow: "moviesPlayingNow",
       genres: "genres",
+      popularActors: "popularActors",
     }),
   },
 };
