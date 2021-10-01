@@ -1,0 +1,28 @@
+//global styles, available through the class / глобальные стили, доступные через класс
+@import "@/styles/global/colors.scss";
+
+.g-component-header {
+  font-family: Abel;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.g-redirect-link-text {
+  text-decoration: none;
+  font-family: Abel;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0px;
+  text-align: right;
+  color: $c-light_blue_text;
+
+  &:hover {
+    color: $c-blue
+  }
+}

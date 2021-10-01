@@ -10,8 +10,17 @@
     /> -->
 
     <!-- <MoviePosterSlider /> -->
+    <BlockSignedImage
+      title="Popular actors"
+      redirectLink="Sea all actors"
+      :dataArray="popularActors"
+    />
 
-    <SignedImage title="Keanu Reeves" :img='fantastic'/>
+    <BlockSignedImage
+      title="Sea on Netflix"
+      redirectLink="Sea all"
+      :dataArray="modifiedMoviesPlayingNow.slice(0, 5)"
+    />
 
     <!-- 
     <SideHeader title="NOW PLAYING" backgroundColor="#2998e2" />
@@ -28,15 +37,13 @@ import MoviePoster from "@/components/MoviePoster/MoviePoster";
 import MoviePosterSlider from "@/containers/MoviePosterSlider/MoviePosterSlider";
 import TodaysWallpaper from "@/components/TodaysWallpaper/TodaysWallpaper";
 import BlockTodaysWallpaper from "@/containers/BlockTodaysWallpaper/BlockTodaysWallpaper";
-import SignedImage from "@/components/SignedImage/SignedImage";
+import BlockSignedImage from "@/containers/BlockSignedImage/BlockSignedImage";
 import { mapGetters, mapActions } from "vuex";
-import fantastic from '../assets/fantastic.png'
 
 export default {
   data() {
     return {
       modifiedMoviesPlayingNow: [],
-      fantastic
     };
   },
 
@@ -47,19 +54,21 @@ export default {
     MoviePosterSlider,
     TodaysWallpaper,
     BlockTodaysWallpaper,
-    SignedImage,
+    BlockSignedImage,
   },
 
   methods: {
     ...mapActions([
       "GET_FILMS_FROM_API",
       "GET_GENRE_FILMS_FROM_API",
+      "GET_POPULAR_ACTORS_FROM_API",
     ]),
   },
 
   mounted() {
     this.GET_FILMS_FROM_API();
     this.GET_GENRE_FILMS_FROM_API();
+    this.GET_POPULAR_ACTORS_FROM_API();
   },
 
   watch: {
@@ -77,6 +86,7 @@ export default {
     ...mapGetters({
       moviesPlayingNow: "moviesPlayingNow",
       genres: "genres",
+      popularActors: "popularActors",
     }),
   },
 };

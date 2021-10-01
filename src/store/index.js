@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 import moviesPlayingNow from './moviesPlayingNow.js'
 import genres from './genres.js'
 import todaysWallpapers from './todaysWallpapers.js'
+import popularActors from './popularActors.js'
 
 export default createStore({
   state: {
@@ -11,6 +12,6 @@ export default createStore({
   actions: {
   },
   modules: {
-    moviesPlayingNow, genres, todaysWallpapers
+    moviesPlayingNow, genres, todaysWallpapers, popularActors
   }
 })
