@@ -1,0 +1,35 @@
+@import "@/styles/global/general.scss";
+
+.block-last-news {
+  width: 414px;
+  height: 381px;
+  border: 2px solid red;
+
+  &__header {
+    display: flex;
+
+    h2 {
+      margin: 0 0 12px 0;
+    }
+
+    .news-categories-menu {
+      margin: 0 50px;
+      padding: 0;
+      height: 21px;
+      display: flex;
+
+      .decorative-trait {
+        margin: 0 9px;
+      }
+
+      li {
+        list-style: none;
+        cursor: pointer;
+      }
+
+      .selected-news-category {
+        color: red;
+      }
+    }
+  }
+}

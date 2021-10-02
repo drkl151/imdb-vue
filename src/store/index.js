@@ -3,6 +3,7 @@ import moviesPlayingNow from './moviesPlayingNow.js'
 import genres from './genres.js'
 import todaysWallpapers from './todaysWallpapers.js'
 import popularActors from './popularActors.js'
+import lastNews from './lastNews.js'
 
 export default createStore({
   state: {
@@ -12,6 +13,6 @@ export default createStore({
   actions: {
   },
   modules: {
-    moviesPlayingNow, genres, todaysWallpapers, popularActors
+    moviesPlayingNow, genres, todaysWallpapers, popularActors,lastNews
   }
 })
