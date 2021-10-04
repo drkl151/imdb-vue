@@ -10,7 +10,7 @@
     /> -->
 
     <!-- <MoviePosterSlider /> -->
-    <BlockSignedImage
+    <!-- <BlockSignedImage
       title="Popular actors"
       redirectLink="Sea all actors"
       :dataArray="popularActors"
@@ -20,12 +20,16 @@
       title="Sea on Netflix"
       redirectLink="Sea all"
       :dataArray="modifiedMoviesPlayingNow.slice(0, 5)"
-    />
+    /> -->
 
     <!-- 
     <SideHeader title="NOW PLAYING" backgroundColor="#2998e2" />
     <SideHeader title="TRAILERS" backgroundColor="#EA4737" /> -->
     <!-- <BlockTodaysWallpaper/> -->
+
+  
+
+    <BlockLastNews />
   </div>
 </template>
 
@@ -34,10 +38,12 @@
 import Header from "@/components/Header/Header";
 import SideHeader from "@/components/SideHeader/SideHeader";
 import MoviePoster from "@/components/MoviePoster/MoviePoster";
-import MoviePosterSlider from "@/containers/MoviePosterSlider/MoviePosterSlider";
 import TodaysWallpaper from "@/components/TodaysWallpaper/TodaysWallpaper";
+import MoviePosterSlider from "@/containers/MoviePosterSlider/MoviePosterSlider";
 import BlockTodaysWallpaper from "@/containers/BlockTodaysWallpaper/BlockTodaysWallpaper";
 import BlockSignedImage from "@/containers/BlockSignedImage/BlockSignedImage";
+import BlockLastNews from "@/containers/BlockLastNews/BlockLastNews";
+
 import { mapGetters, mapActions } from "vuex";
 
 export default {
@@ -55,6 +61,7 @@ export default {
     TodaysWallpaper,
     BlockTodaysWallpaper,
     BlockSignedImage,
+    BlockLastNews,
   },
 
   methods: {
