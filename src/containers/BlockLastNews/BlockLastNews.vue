@@ -3,18 +3,38 @@
     <div class="block-last-news__header">
       <h2 class="g-component-header">Last News</h2>
       <ul class="news-categories-menu">
-        <li :class="{'selected-news-category' : selectedNewsCategory.top}">Top</li>
+        <li
+          @click="(e) => selectCategory(e)"
+          :class="{ 'selected-news-category': categoryNews === 'top' }"
+        >
+          Top
+        </li>
         <span class="decorative-trait">|</span>
-
-        <li @click="selectedNewsCategory.movies = true" :class="{'selected-news-category' : selectedNewsCategory.movies}">Movies</li>
+        <li
+          @click="(e) => selectCategory(e)"
+          :class="{ 'selected-news-category': categoryNews === 'movies' }"
+        >
+          Movies
+        </li>
         <span class="decorative-trait">|</span>
-        <li :class="{'selected-news-category' : selectedNewsCategory.tv}">TV</li>
+        <li
+          @click="(e) => selectCategory(e)"
+          :class="{ 'selected-news-category': categoryNews === 'tv' }"
+        >
+          TV
+        </li>
         <span class="decorative-trait">|</span>
-        <li :class="{'selected-news-category' : selectedNewsCategory.celebs}">Celebs</li>
+        <li
+          @click="(e) => selectCategory(e)"
+          :class="{ 'selected-news-category': categoryNews === 'celebs' }"
+        >
+          Celebs
+        </li>
       </ul>
     </div>
-
+    <p v-if="isLoading">Loading</p>
     <LastNews
+      v-else
       v-for="news in lastNews"
       :key="news.id"
       :img="news.urlToImage"
@@ -30,36 +50,31 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   data() {
-    return {
-      selectedNewsCategory: {
-        top: true,
-        movies: false,
-        tv: false,
-        celebs: false,
-      },
-    };
+    return {};
   },
-  watch: {
-    selectedNewsCategory(){
-      console.log(123);
-    }
-  },
+
   components: {
     LastNews,
   },
 
   methods: {
     ...mapActions(["GET_LAST_NEWS_FROM_API"]),
+
+    selectCategory(e) {
+      this.GET_LAST_NEWS_FROM_API(e.target.innerHTML.toLowerCase().trim());
+    },
   },
 
   computed: {
     ...mapGetters({
       lastNews: "lastNews",
+      categoryNews: "categoryNews",
+      isLoading: "isLoading",
     }),
   },
 
   mounted() {
-    this.GET_LAST_NEWS_FROM_API();
+    this.GET_LAST_NEWS_FROM_API("top");
   },
 };
 </script>

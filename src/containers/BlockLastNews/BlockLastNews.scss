@@ -2,7 +2,7 @@
 
 .block-last-news {
   width: 414px;
-  height: 381px;
+  min-height: 381px;
   border: 2px solid red;
 
   &__header {
