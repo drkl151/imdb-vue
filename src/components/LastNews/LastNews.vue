@@ -22,15 +22,15 @@ export default {
   props: {
     img: {
       type: String,
-      requared: true,
+      required: true,
     },
     title: {
       type: String,
-      requared: true,
+      required: true,
     },
     content: {
       type: String,
-      requared: true,
+      required: true,
     },
   },
 

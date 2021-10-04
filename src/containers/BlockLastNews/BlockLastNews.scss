@@ -3,7 +3,7 @@
 .block-last-news {
   width: 414px;
   min-height: 381px;
-  border: 2px solid red;
+  position: relative;
 
   &__header {
     display: flex;
@@ -25,11 +25,22 @@
       li {
         list-style: none;
         cursor: pointer;
+        
+        &:hover {
+          color: $c-light_blue_text;
+        }
       }
 
       .selected-news-category {
-        color: red;
+        color: $c-light_blue_text;
       }
     }
+  }
+
+  &__loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }

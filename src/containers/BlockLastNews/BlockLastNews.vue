@@ -32,7 +32,7 @@
         </li>
       </ul>
     </div>
-    <p v-if="isLoading">Loading</p>
+    <div class="block-last-news__loader" v-if="isLoading"><Loader size="50px" /></div>
     <LastNews
       v-else
       v-for="news in lastNews"
@@ -46,6 +46,7 @@
 
 <script>
 import LastNews from "@/components/LastNews/LastNews";
+import Loader from "@/components/Loader/Loader";
 import { mapGetters, mapActions } from "vuex";
 
 export default {
@@ -55,6 +56,7 @@ export default {
 
   components: {
     LastNews,
+    Loader,
   },
 
   methods: {
