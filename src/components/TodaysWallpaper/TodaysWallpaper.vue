@@ -2,7 +2,7 @@
   <div
     class="todays-wallpaper"
     :style="{
-      background: `url(http://image.tmdb.org/t/p/w500${backgroundImg})`,
+      background: `url(http://image.tmdb.org/t/p/w1280${backgroundImg})`,
       backgroundSize: 'cover',
       backgroundPosition: '0 -25px',
     }"

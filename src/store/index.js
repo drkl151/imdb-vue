@@ -7,12 +7,23 @@ import lastNews from './lastNews.js'
 
 export default createStore({
   state: {
+    screenSize: null,
   },
+  
   mutations: {
+    SET_CURRENT_SCREEN_SIZE_TO_STATE: (state, screenSize) => {
+      state.screenSize = screenSize
+    }
   },
+
   actions: {
   },
+
+  getters: {
+    screenSize: (state) => state.screenSize
+  },
+
   modules: {
-    moviesPlayingNow, genres, todaysWallpapers, popularActors,lastNews
+    moviesPlayingNow, genres, todaysWallpapers, popularActors, lastNews
   }
 })

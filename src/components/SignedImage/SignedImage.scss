@@ -1,7 +1,7 @@
 @import "@/styles/global/general.scss";
 
 .signed-image {
-  width: 84px;
+  margin: 0 2px;
 
   &__img {
     width: 80px;
@@ -14,12 +14,101 @@
   }
 
   &__title {
-    width: 82px;
+    width: 80px;
+    text-align: center;
     color: $c-light_blue_text;
     font-size: 14px;
     font-weight: 400;
     line-height: 14px;
     letter-spacing: 0px;
-    margin: 6px 0 0 0;
+    margin-top: 6px;
+  }
+}
+
+@media all and (max-width: 1395px) {
+  .signed-image {
+    &__img {
+      width: 120px;
+      height: 182px;
+    }
+
+    &__title {
+      width: 120px;
+      font-size: 18px;
+      line-height: 23px;
+    }
+  }
+}
+
+@media all and (max-width: 1100px) {
+  .signed-image {
+    &__img {
+      width: 120px;
+      height: 182px;
+    }
+
+    &__title {
+      width: 120px;
+      font-size: 18px;
+      line-height: 23px;
+    }
+  }
+}
+
+@media all and (max-width: 790px) {
+  .signed-image {
+    &__img {
+      width: 110px;
+      height: 160px;
+    }
+
+    &__title {
+      width: 110px;
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+}
+
+@media all and (max-width: 700px) {
+  .signed-image {
+    &__img {
+      width: 100px;
+      height: 145px;
+    }
+
+    &__title {
+      width: 100px;
+      font-size: 16px;
+    }
+  }
+}
+
+@media all and (max-width: 630px) {
+  .signed-image {
+    &__img {
+      width: 85px;
+      height: 130px;
+    }
+
+    &__title {
+      width: 85px;
+      font-size: 15px;
+    }
+  }
+}
+
+@media all and (max-width: 450px) {
+  .signed-image {
+    &__img {
+      width: 68px;
+      height: 107px;
+    }
+
+    &__title {
+      line-height: 15px;
+      width: 68px;
+      font-size: 14px;
+    }
   }
 }

@@ -4,9 +4,84 @@
   box-sizing: content-box;
   height: 379px;
   width: 407px;
-  padding: 0 0 10px 0;
+  margin: 10px 0;
 
   &__title {
     margin: 0 0 14px 0;
+  }
+}
+
+@media all and (max-width: 1395px) {
+  .block-with-components {
+    .block-todays-wallpaper {
+      width: 100%;
+      height: fit-content;
+
+      &__title {
+        text-align: center;
+        font-size: 34px;
+      }
+
+      &__todays-wallpaper {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        .todays-wallpaper {
+          width: 100%;
+          height: 280px;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1100px) {
+  .block-with-components {
+    .block-todays-wallpaper {
+      width: 90%;
+
+      &__title {
+        text-align: center;
+      }
+
+      &__todays-wallpaper {
+        .todays-wallpaper {
+          height: 180px;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 700px) {
+  .block-with-components {
+    .block-todays-wallpaper {
+
+      &__title {
+        font-size: 24px;
+        text-align: center;
+      }
+
+      &__todays-wallpaper {
+        .todays-wallpaper {
+          height: 140px;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 460px) {
+  .block-with-components {
+    .block-todays-wallpaper {
+      &__todays-wallpaper {
+        .todays-wallpaper {
+          height: 90px;
+        }
+      }
+    }
   }
 }
