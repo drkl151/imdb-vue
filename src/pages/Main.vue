@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <Header />
+  <div class="main">
+    <!-- <Header /> -->
     <!-- <MoviePoster
       v-for="film in modifiedMoviesPlayingNow"
       :key="film.imdb_id"
@@ -10,26 +10,28 @@
     /> -->
 
     <!-- <MoviePosterSlider /> -->
-    <!-- <BlockSignedImage
-      title="Popular actors"
-      redirectLink="Sea all actors"
-      :dataArray="popularActors"
-    />
 
-    <BlockSignedImage
-      title="Sea on Netflix"
-      redirectLink="Sea all"
-      :dataArray="modifiedMoviesPlayingNow.slice(0, 5)"
-    /> -->
-
-    <!-- 
-    <SideHeader title="NOW PLAYING" backgroundColor="#2998e2" />
+    <!-- <SideHeader title="NOW PLAYING" backgroundColor="#2998e2" />
     <SideHeader title="TRAILERS" backgroundColor="#EA4737" /> -->
-    <!-- <BlockTodaysWallpaper/> -->
+    {{ screenSize }}
+    <div class="block-with-components">
+      <BlockLastNews />
 
-  
+      <div class="blocks-signed-image">
+        <BlockSignedImage
+          title="Popular actors"
+          redirectLink="Sea all actors"
+          :dataArray="displayPopularActorOnCurrentScreenSize"
+        />
+        <BlockSignedImage
+          title="Popular TV shows"
+          redirectLink="Sea all"
+          :dataArray="displayPopularMovieOnCurrentScreenSize"
+        />
+      </div>
 
-    <BlockLastNews />
+      <BlockTodaysWallpaper />
+    </div>
   </div>
 </template>
 
@@ -44,7 +46,7 @@ import BlockTodaysWallpaper from "@/containers/BlockTodaysWallpaper/BlockTodaysW
 import BlockSignedImage from "@/containers/BlockSignedImage/BlockSignedImage";
 import BlockLastNews from "@/containers/BlockLastNews/BlockLastNews";
 
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
   data() {
@@ -70,12 +72,29 @@ export default {
       "GET_GENRE_FILMS_FROM_API",
       "GET_POPULAR_ACTORS_FROM_API",
     ]),
+
+    ...mapMutations(["SET_CURRENT_SCREEN_SIZE_TO_STATE"]),
+
+    getScreenSize() {
+      this.SET_CURRENT_SCREEN_SIZE_TO_STATE(
+        document.documentElement.clientWidth
+      );
+    },
   },
 
   mounted() {
+    this.SET_CURRENT_SCREEN_SIZE_TO_STATE(document.documentElement.clientWidth);
+
+    this.$nextTick(function () {
+      window.addEventListener("resize", this.getScreenSize);
+    });
+
     this.GET_FILMS_FROM_API();
     this.GET_GENRE_FILMS_FROM_API();
     this.GET_POPULAR_ACTORS_FROM_API();
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.getScreenSize);
   },
 
   watch: {
@@ -94,7 +113,58 @@ export default {
       moviesPlayingNow: "moviesPlayingNow",
       genres: "genres",
       popularActors: "popularActors",
+      screenSize: "screenSize",
     }),
+
+    displayPopularActorOnCurrentScreenSize() {
+      if (
+        this.screenSize > 1395 ||
+        (this.screenSize < 860 && this.screenSize > 560)
+      ) {
+        return this.popularActors.slice(0, 5);
+      }
+      if (this.screenSize < 1295 && this.screenSize > 1190) {
+        return this.popularActors.slice(0, 9);
+      }
+      if (this.screenSize < 1195 && this.screenSize > 1100) {
+        return this.popularActors.slice(0, 8);
+      }
+      if (this.screenSize < 1105 && this.screenSize > 1000) {
+        return this.popularActors.slice(0, 7);
+      }
+      if (this.screenSize < 1005 && this.screenSize > 855) {
+        return this.popularActors.slice(0, 6);
+      }
+      if (this.screenSize < 860 && this.screenSize > 0) {
+        return this.popularActors.slice(0, 4);
+      }
+      return this.popularActors;
+    },
+
+    displayPopularMovieOnCurrentScreenSize() {
+      if (
+        this.screenSize > 1395 ||
+        (this.screenSize < 860 && this.screenSize > 560)
+      ) {
+        return this.modifiedMoviesPlayingNow.slice(0, 5);
+      }
+      if (this.screenSize < 1295 && this.screenSize > 1190) {
+        return this.modifiedMoviesPlayingNow.slice(0, 9);
+      }
+      if (this.screenSize < 1195 && this.screenSize > 1100) {
+        return this.modifiedMoviesPlayingNow.slice(0, 8);
+      }
+      if (this.screenSize < 1105 && this.screenSize > 1000) {
+        return this.modifiedMoviesPlayingNow.slice(0, 7);
+      }
+      if (this.screenSize < 1005 && this.screenSize > 855) {
+        return this.modifiedMoviesPlayingNow.slice(0, 6);
+      }
+      if (this.screenSize < 560 && this.screenSize > 0) {
+        return this.modifiedMoviesPlayingNow.slice(0, 4);
+      }
+      return this.modifiedMoviesPlayingNow.slice(0, 10);
+    },
   },
 };
 </script>

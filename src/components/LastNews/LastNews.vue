@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {};
@@ -35,11 +36,21 @@ export default {
   },
 
   computed: {
+    ...mapGetters(["screenSize"]),
+
     trimmedContent() {
-      return this.content.substring(0, 102) + "...";
+      const contentScreenSize =
+        this.screenSize < 869 && this.screenSize > 650
+          ? this.content.split("… [+").slice(0, 1).join("") + "..."
+          : this.content.substring(0, 102) + "...";
+      return contentScreenSize;
     },
     trimmedTitle() {
-      return this.title.substring(0, 57) + "...";
+      const contentScreenSize =
+        this.screenSize < 869 && this.screenSize > 650
+          ? this.content.split(" ").slice(0, 10).join(" ") + "..."
+          : this.title.substring(0, 57) + "...";
+      return contentScreenSize;
     },
   },
 };

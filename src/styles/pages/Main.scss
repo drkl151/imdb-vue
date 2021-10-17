@@ -1,9 +1,32 @@
 @import "@/styles/global/general.scss";
 
-.btn.glossy {
-  background-color: rgb(0, 180, 0);
+.main {
+  .block-with-components {
+    box-sizing: content-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 120px;
+  }
+}
 
-  .notranslate.material-icons.q-icon{
-    color: rgb(255, 255, 255);
+@media all and (max-width: 1395px) {
+  .main {
+    .block-with-components {
+      margin: 0 20px;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+}
+
+@media all and (max-width: 460px) {
+  .main {
+    .block-with-components {
+      .g-component-header {
+        font-size: 22px;
+      }
+    }
   }
 }

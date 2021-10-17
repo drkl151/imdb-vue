@@ -32,15 +32,19 @@
         </li>
       </ul>
     </div>
-    <div class="block-last-news__loader" v-if="isLoading"><Loader size="50px" /></div>
-    <LastNews
-      v-else
-      v-for="news in lastNews"
-      :key="news.id"
-      :img="news.urlToImage"
-      :title="news.title"
-      :content="news.content"
-    />
+    <div class="block-last-news__loader" v-if="isLoading">
+      <Loader size="50px" />
+    </div>
+
+    <div v-else class="block-last-news__last-news">
+      <LastNews
+        v-for="news in displayNewsOnCurrentScreenSize"
+        :key="news.id"
+        :img="news.urlToImage"
+        :title="news.title"
+        :content="news.content"
+      />
+    </div>
   </div>
 </template>
 
@@ -72,7 +76,24 @@ export default {
       lastNews: "lastNews",
       categoryNews: "categoryNews",
       isLoading: "isLoading",
+      screenSize: "screenSize",
     }),
+
+    displayNewsOnCurrentScreenSize() {
+      if (this.screenSize > 1395) {
+        return this.lastNews.slice(0, 3);
+      }
+      if (this.screenSize < 1395 && this.screenSize > 1285) {
+        return this.lastNews.slice(0, 6);
+      }
+      if (this.screenSize < 1090 && this.screenSize > 965) {
+        return this.lastNews.slice(0, 4);
+      }
+       if (this.screenSize < 970 && this.screenSize > 0) {
+        return this.lastNews.slice(0, 3);
+      }
+      return this.lastNews;
+    },
   },
 
   mounted() {

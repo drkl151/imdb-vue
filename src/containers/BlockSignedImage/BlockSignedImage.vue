@@ -2,9 +2,9 @@
   <div class="block-signed-image">
     <div class="block-signed-image__header">
       <h2 class="header__title g-component-header">{{ title }}</h2>
-      <a class="g-redirect-link-text" href="#">{{ redirectLink }}</a>
+      <a class="header__redirect-link g-redirect-link-text" href="#">{{ redirectLink }}</a>
     </div>
-    <div class="wrapper-signed-image">
+    <div class="block-signed-image__signed-image">
       <SignedImage
         v-for="dataObject in dataArray"
         :key="dataObject.id"

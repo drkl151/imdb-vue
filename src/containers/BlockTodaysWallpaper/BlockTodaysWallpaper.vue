@@ -1,14 +1,16 @@
 <template>
   <div class="block-todays-wallpaper">
-    <h2 class="block-todays-wallpaper__title g-component-header">
+    <h2 class="g-component-header block-todays-wallpaper__title">
       Today's wallpapers
     </h2>
+    <div class="block-todays-wallpaper__todays-wallpaper">
     <TodaysWallpaper
       v-for="todaysWallpaper in mainTodaysWalpaper"
       :key="todaysWallpaper.id"
       :backgroundImg="todaysWallpaper.backdrop_path"
       :titleMovie="todaysWallpaper.title"
     />
+    </div>
   </div>
 </template>
 

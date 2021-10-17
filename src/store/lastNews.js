@@ -25,7 +25,7 @@ const lastNews = {
         method: "GET"
       })
         .then(({ data }) => {
-          commit('SET_LAST_NEWS_TO_STATE', data.articles.slice(0, 3))
+          commit('SET_LAST_NEWS_TO_STATE', data.articles.slice(0, 6))
         })
         .catch((error) => {
           console.log(error);

@@ -23,7 +23,7 @@ const popularActors = {
       axios.request(actors).then(function (response) {
         const randomPopularActors = [];
 
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 10; i++) {
           let idx = Math.floor(Math.random() * response.data.results.length);
           randomPopularActors.push(response.data.results[idx]);
           response.data.results.splice(idx, 1);
