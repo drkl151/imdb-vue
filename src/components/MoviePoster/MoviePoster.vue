@@ -10,7 +10,7 @@
         <p>Information</p>
       </div>
     </div>
-    <div class="text-block-wrapper">
+    <div class="linear-gradient-block">
       <div class="text-block">
         <h2 class="text-block__movie-title">{{ title }}</h2>
         <p class="text-block__movie-genre">{{ mainGenres }}</p>

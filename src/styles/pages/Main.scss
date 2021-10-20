@@ -1,6 +1,11 @@
 @import "@/styles/global/general.scss";
 
 .main {
+  .now-playing {
+    margin: 0 auto;
+    display: flex;
+  }
+
   .block-with-components {
     box-sizing: content-box;
     display: flex;

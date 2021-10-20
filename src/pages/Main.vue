@@ -1,20 +1,16 @@
 <template>
   <div class="main">
-    <!-- <Header /> -->
-    <!-- <MoviePoster
-      v-for="film in modifiedMoviesPlayingNow"
-      :key="film.imdb_id"
-      :title="film.title"
-      :genre="film.genre_ids"
-      :img="film.poster_path"
-    /> -->
-
-    <!-- <MoviePosterSlider /> -->
-
-    <!-- <SideHeader title="NOW PLAYING" backgroundColor="#2998e2" />
-    <SideHeader title="TRAILERS" backgroundColor="#EA4737" /> -->
     {{ screenSize }}
-    <div class="block-with-components">
+    <Header />
+
+    <div class="now-playing">
+      <SideHeader title="NOW PLAYING" backgroundColor="#2998e2" />
+      <MoviePosterSlider />
+    </div>
+
+    <!-- <SideHeader title="TRAILERS" backgroundColor="#EA4737" /> -->
+
+    <!-- <div class="block-with-components">
       <BlockLastNews />
 
       <div class="blocks-signed-image">
@@ -30,16 +26,14 @@
         />
       </div>
 
-      <BlockTodaysWallpaper />
-    </div>
+      <BlockTodaysWallpaper /> -->
+    <!-- </div> -->
   </div>
 </template>
-
 
 <script>
 import Header from "@/components/Header/Header";
 import SideHeader from "@/components/SideHeader/SideHeader";
-import MoviePoster from "@/components/MoviePoster/MoviePoster";
 import TodaysWallpaper from "@/components/TodaysWallpaper/TodaysWallpaper";
 import MoviePosterSlider from "@/containers/MoviePosterSlider/MoviePosterSlider";
 import BlockTodaysWallpaper from "@/containers/BlockTodaysWallpaper/BlockTodaysWallpaper";
@@ -50,14 +44,11 @@ import { mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
   data() {
-    return {
-      modifiedMoviesPlayingNow: [],
-    };
+    return {};
   },
 
   components: {
     Header,
-    MoviePoster,
     SideHeader,
     MoviePosterSlider,
     TodaysWallpaper,
@@ -85,7 +76,7 @@ export default {
   mounted() {
     this.SET_CURRENT_SCREEN_SIZE_TO_STATE(document.documentElement.clientWidth);
 
-    this.$nextTick(function () {
+    this.$nextTick(function() {
       window.addEventListener("resize", this.getScreenSize);
     });
 
@@ -93,19 +84,9 @@ export default {
     this.GET_GENRE_FILMS_FROM_API();
     this.GET_POPULAR_ACTORS_FROM_API();
   },
+
   destroyed() {
     window.removeEventListener("resize", this.getScreenSize);
-  },
-
-  watch: {
-    genres() {
-      this.modifiedMoviesPlayingNow = this.moviesPlayingNow.map((movie) => {
-        const modifiedGenres = movie.genre_ids.map(
-          (id) => this.genres.filter((genre) => genre.id === id)[0].name
-        );
-        return { ...movie, genre_ids: modifiedGenres };
-      });
-    },
   },
 
   computed: {
