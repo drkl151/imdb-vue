@@ -1,7 +1,32 @@
-.q-carousel__slide {
-  background-color: rgb(29, 184, 68);
+.movie-poster-slider {
+  width: 1299px;
+}
 
-  [dir] .q-pa-md {
-    padding: 0px;
+.splide {
+  .splide__arrow--prev {
+    left: 5px;
+    transform: translateY(-50%) scaleX(-1);
+  }
+
+  .splide__arrow--next {
+    right: 0px;
+  }
+
+  .splide__arrow {
+    width: 36px;
+    height: 368px;
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0.33);
+
+    svg {
+      text-align: center;
+      position: relative;
+      top: 50px;
+      left: 50px;
+      transform: translate(-37px, -50px);
+      width: fit-content;
+      height: fit-content;
+      fill: #fff;
+    }
   }
 }

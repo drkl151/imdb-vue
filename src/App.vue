@@ -1,24 +1,10 @@
 <template>
   <router-view />
-   <Splide :options="{ rewind: true }">
-    <SplideSlide>
-      <p>hi</p>
-    </SplideSlide>
-    <SplideSlide>
-      <p>bye</p>
-    </SplideSlide>
-  </Splide>
 </template>
 
 <script>
-import { Splide, SplideSlide } from '@splidejs/vue-splide';
-
 
 export default {
-  components: {
-    Splide,
-    SplideSlide,
-  }
 };
 </script>
 
