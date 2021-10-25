@@ -1,16 +1,17 @@
 <template>
   <div class="main">
     {{ screenSize }}
-    <Header />
+    <!-- <Header /> -->
 
-    <div class="now-playing">
-      <SideHeader title="NOW PLAYING" backgroundColor="#2998e2" />
-      <MoviePosterSlider />
-    </div>
+    <div class="content">
+      <div class="block-now-playing">
+        <SideHeader title="NOW PLAYING" backgroundColor="#2998e2" />
+        <MoviePosterSlider />
+      </div>
 
-    <!-- <SideHeader title="TRAILERS" backgroundColor="#EA4737" /> -->
+      <!-- <SideHeader title="TRAILERS" backgroundColor="#EA4737" /> -->
 
-    <!-- <div class="block-with-components">
+      <!-- <div class="block-with-components">
       <BlockLastNews />
 
       <div class="blocks-signed-image">
@@ -27,7 +28,8 @@
       </div>
 
       <BlockTodaysWallpaper /> -->
-    <!-- </div> -->
+      <!-- </div> -->
+    </div>
   </div>
 </template>
 

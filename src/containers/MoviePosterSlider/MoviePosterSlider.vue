@@ -24,18 +24,27 @@ export default {
       optionsSplide: {
         rewind: true,
         type: "loop",
-        perPage: 5,
-        perMove: 5,
+        perPage: 7,
+        perMove: 4,
         arrowPath: "M0 0V26L11 13L0 0Z",
         pagination: 0,
 
+
         breakpoints: {
+           1500: {
+            perPage: 6,
+            perMove: 4,
+          },
+           1330: {
+            perPage: 5,
+            perMove: 5,
+          },
           1100: {
             perPage: 4,
             perMove: 4,
           },
 
-           970: {
+           920: {
             perPage: 3,
             perMove: 3,
           },
