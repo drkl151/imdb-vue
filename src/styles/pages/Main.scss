@@ -1,17 +1,26 @@
 @import "@/styles/global/general.scss";
 
 .main {
-  .now-playing {
+  .content {
+    width: fit-content;
     margin: 0 auto;
-    display: flex;
-  }
 
-  .block-with-components {
-    box-sizing: content-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 120px;
+    .block-now-playing {
+      margin: 0 auto;
+      display: flex;
+
+      .side-header {
+        height: 370px;
+      }
+    }
+
+    .block-with-components {
+      box-sizing: content-box;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 120px;
+    }
   }
 }
 
@@ -26,11 +35,70 @@
   }
 }
 
+@media all and (max-width: 830px) {
+  .main {
+    .content {
+      .block-now-playing {
+        .side-header {
+          height: 330px;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 630px) {
+  .main {
+    .content {
+      .block-now-playing {
+        .side-header {
+          height: 300px;
+          .side-header__text {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 530px) {
+  .main {
+    .content {
+      .block-now-playing {
+        .side-header {
+          height: 230px;
+          .side-header__text {
+            font-size: 11px;
+          }
+        }
+      }
+    }
+  }
+}
+
 @media all and (max-width: 460px) {
   .main {
     .block-with-components {
       .g-component-header {
         font-size: 22px;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 430px) {
+  .main {
+    .content {
+      .block-now-playing {
+        .side-header {
+          height: 190px;
+
+          .side-header__text {
+            font-size: 9px;
+            letter-spacing: 6.55px;
+          }
+        }
       }
     }
   }
