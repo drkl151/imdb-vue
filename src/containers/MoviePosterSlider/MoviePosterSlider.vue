@@ -14,7 +14,7 @@
 
 <script>
 import { Splide, SplideSlide } from "@splidejs/vue-splide";
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters } from "vuex";
 import MoviePoster from "@/components/MoviePoster/MoviePoster";
 
 export default {
@@ -29,13 +29,12 @@ export default {
         arrowPath: "M0 0V26L11 13L0 0Z",
         pagination: 0,
 
-
         breakpoints: {
-           1500: {
+          1500: {
             perPage: 6,
             perMove: 4,
           },
-           1330: {
+          1330: {
             perPage: 5,
             perMove: 5,
           },
@@ -44,9 +43,14 @@ export default {
             perMove: 4,
           },
 
-           920: {
+          920: {
             perPage: 3,
             perMove: 3,
+          },
+
+          530: {
+            perPage: 2,
+            perMove: 2,
           },
         },
       },

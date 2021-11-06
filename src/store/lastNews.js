@@ -4,7 +4,7 @@ const lastNews = {
   state: {
     lastNews: [],
     categoryNews: '',
-    isLoading: false,
+    loaderLastNews: false,
   },
   mutations: {
     SET_LAST_NEWS_TO_STATE(state, lastNews) {
@@ -14,7 +14,7 @@ const lastNews = {
       state.categoryNews = category
     },
     CHANGE_LOADING(state, value) {
-      state.isLoading = value
+      state.loaderLastNews = value
     }
   },
   actions: {
@@ -39,7 +39,7 @@ const lastNews = {
   getters: {
     lastNews: ({ lastNews }) => lastNews,
     categoryNews: ({ categoryNews }) => categoryNews,
-    isLoading: ({ isLoading }) => isLoading
+    loaderLastNews: ({ loaderLastNews }) => loaderLastNews,
   }
 }
 

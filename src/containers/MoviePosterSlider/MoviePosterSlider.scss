@@ -1,3 +1,5 @@
+@import "@/styles/global/general.scss";
+
 .movie-poster-slider {
   width: 100%;
   margin: 0;
@@ -5,16 +7,18 @@
 
   .splide {
     width: 100%;
-    .splide__arrow--prev {
+
+    &__arrow--prev {
       left: 5px;
       transform: translateY(-50%) scaleX(-1);
+      display: none;
     }
 
-    .splide__arrow--next {
+    &__arrow--next {
       right: 0px;
     }
 
-    .splide__arrow {
+    &__arrow {
       width: 36px;
       height: 368px;
       border-radius: 0;
@@ -37,7 +41,7 @@
 @media all and (max-width: 830px) {
   .movie-poster-slider {
     .splide {
-      .splide__arrow {
+      &__arrow {
         height: 330px;
       }
     }
@@ -48,9 +52,10 @@
         .text-block {
           &__movie-title {
             font-size: 16px;
-            line-height: 18px;
+            line-height: 17px;
           }
           &__movie-genre {
+            padding-top: 4px;
             font-size: 13px;
           }
         }
@@ -62,49 +67,30 @@
 @media all and (max-width: 630px) {
   .movie-poster-slider {
     .splide {
-      .splide__arrow {
+      &__arrow {
         height: 300px;
       }
     }
     .movie-poster {
       height: 300px;
-
-      .linear-gradient-block {
-        .text-block {
-          &__movie-title {
-            font-size: 15px;
-          }
-
-          &__movie-genre {
-            font-size: 12px;
-          }
-        }
-      }
     }
   }
 }
 
 @media all and (max-width: 530px) {
   .movie-poster-slider {
-    .splide {
-      .splide__arrow {
-        height: 230px;
-      }
-    }
-
     .movie-poster {
-      height: 230px;
-
       .linear-gradient-block {
         .text-block {
           padding: 0px 10px;
+          bottom: 10px;
 
           &__movie-title {
-            font-size: 14px;
+            font-size: 16px;
           }
 
           &__movie-genre {
-            font-size: 11px;
+            font-size: 14px;
             padding-top: 2px;
           }
         }
@@ -117,27 +103,25 @@
   .movie-poster-slider {
     .splide {
       .splide__arrow {
-        height: 190px;
+        height: 280px;
       }
     }
 
     .movie-poster {
-      height: 190px;
+      height: 280px;
 
       .linear-gradient-block {
         .text-block {
-          bottom: 10px;
-          padding: 0px 5px;
+          padding: 0px 8px;
 
           &__movie-title {
             line-height: 12px;
-            font-size: 12px;
+            font-size: 14px;
           }
-          
+
           &__movie-genre {
             line-height: 12px;
-            font-size: 10px;
-            padding-top: 1px;
+            font-size: 12px;
           }
         }
       }

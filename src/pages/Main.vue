@@ -9,7 +9,10 @@
         <MoviePosterSlider />
       </div>
 
-      <!-- <SideHeader title="TRAILERS" backgroundColor="#EA4737" /> -->
+      <div class="block-treilers">
+        <SideHeader title="TRAILERS" backgroundColor="#EA4737" />
+        <MovieTreilerSlider />
+      </div>
 
       <!-- <div class="block-with-components">
       <BlockLastNews />
@@ -36,23 +39,21 @@
 <script>
 import Header from "@/components/Header/Header";
 import SideHeader from "@/components/SideHeader/SideHeader";
-import TodaysWallpaper from "@/components/TodaysWallpaper/TodaysWallpaper";
 import MoviePosterSlider from "@/containers/MoviePosterSlider/MoviePosterSlider";
+import TodaysWallpaper from "@/components/TodaysWallpaper/TodaysWallpaper";
 import BlockTodaysWallpaper from "@/containers/BlockTodaysWallpaper/BlockTodaysWallpaper";
 import BlockSignedImage from "@/containers/BlockSignedImage/BlockSignedImage";
 import BlockLastNews from "@/containers/BlockLastNews/BlockLastNews";
+import MovieTreilerSlider from "@/containers/MovieTreilerSlider/MovieTreilerSlider";
 
 import { mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
-  data() {
-    return {};
-  },
-
   components: {
     Header,
     SideHeader,
     MoviePosterSlider,
+    MovieTreilerSlider,
     TodaysWallpaper,
     BlockTodaysWallpaper,
     BlockSignedImage,
@@ -97,6 +98,7 @@ export default {
       genres: "genres",
       popularActors: "popularActors",
       screenSize: "screenSize",
+      popularMovies: "popularMovies",
     }),
 
     displayPopularActorOnCurrentScreenSize() {
