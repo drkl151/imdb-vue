@@ -8,10 +8,6 @@ const popularMovies = {
   },
 
   mutations: {
-    SET_POPULAR_MOVIES_TO_STATE: (state, popularMovies) => {
-      state.popularMovies.push(popularMovies)
-    },
-
     SET_DETALIS_MOVIES_TO_STATE: (state, popularMovies) => {
       state.popularMovies.push(popularMovies)
     },

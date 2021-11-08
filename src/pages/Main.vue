@@ -11,27 +11,27 @@
 
       <div class="block-treilers">
         <SideHeader title="TRAILERS" backgroundColor="#EA4737" />
-        <MovieTreilerSlider />
+        <MovieTrailerSlider />
       </div>
 
       <!-- <div class="block-with-components">
-      <BlockLastNews />
+        <BlockLastNews />
 
-      <div class="blocks-signed-image">
-        <BlockSignedImage
-          title="Popular actors"
-          redirectLink="Sea all actors"
-          :dataArray="displayPopularActorOnCurrentScreenSize"
-        />
-        <BlockSignedImage
-          title="Popular TV shows"
-          redirectLink="Sea all"
-          :dataArray="displayPopularMovieOnCurrentScreenSize"
-        />
-      </div>
+        <div class="blocks-signed-image">
+          <BlockSignedImage
+            title="Popular actors"
+            redirectLink="Sea all actors"
+            :dataArray="displayPopularActorOnCurrentScreenSize"
+          />
+          <BlockSignedImage
+            title="Popular TV shows"
+            redirectLink="Sea all"
+            :dataArray="displayPopularMovieOnCurrentScreenSize"
+          />
+        </div>
 
-      <BlockTodaysWallpaper /> -->
-      <!-- </div> -->
+        <BlockTodaysWallpaper />
+      </div> -->
     </div>
   </div>
 </template>
@@ -44,7 +44,7 @@ import TodaysWallpaper from "@/components/TodaysWallpaper/TodaysWallpaper";
 import BlockTodaysWallpaper from "@/containers/BlockTodaysWallpaper/BlockTodaysWallpaper";
 import BlockSignedImage from "@/containers/BlockSignedImage/BlockSignedImage";
 import BlockLastNews from "@/containers/BlockLastNews/BlockLastNews";
-import MovieTreilerSlider from "@/containers/MovieTreilerSlider/MovieTreilerSlider";
+import MovieTrailerSlider from "@/containers/MovieTrailerSlider/MovieTrailerSlider";
 
 import { mapGetters, mapActions, mapMutations } from "vuex";
 
@@ -53,7 +53,7 @@ export default {
     Header,
     SideHeader,
     MoviePosterSlider,
-    MovieTreilerSlider,
+    MovieTrailerSlider,
     TodaysWallpaper,
     BlockTodaysWallpaper,
     BlockSignedImage,

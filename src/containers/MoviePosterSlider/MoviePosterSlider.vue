@@ -42,12 +42,10 @@ export default {
             perPage: 4,
             perMove: 4,
           },
-
           920: {
             perPage: 3,
             perMove: 3,
           },
-
           530: {
             perPage: 2,
             perMove: 2,

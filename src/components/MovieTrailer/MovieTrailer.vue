@@ -1,13 +1,8 @@
 <template>
   <div class="movie-trailer-wrapper">
     <div class="movie-trailer" @click="movieTrailerOn = true">
-      <iframe
-        v-if="movieTrailerOn"
-        width="100%"
-        height="100%"
-        :src="`https://www.youtube.com/embed/${videoKey}?autoplay=1&mute=1`"
-      >
-      </iframe>
+      <iframe v-if="movieTrailerOn" width="100%" height="100%"
+      :src="`https://www.youtube.com/embed/${videoKey}?autoplay=1&mute=1`" />
 
       <div
         class="movie-trailer__poster"
@@ -45,32 +40,23 @@ export default {
       movieTrailerOn: false,
     };
   },
-  
+
   props: {
     videoKey: {
       type: String,
-      reqared: true,
+      required: true,
     },
     title: {
       type: String,
-      reqared: true,
+      required: true,
     },
     backgroundImage: {
       type: String,
-      reqared: true,
+      required: true,
     },
     year: {
       type: String,
-      reqared: true,
-    },
-  },
-
-  methods: {
-    showLoader() {
-      this.loaderMovieTreiler = true;
-      setTimeout(() => {
-        this.loaderMovieTreiler = false;
-      }, 500);
+      required: true,
     },
   },
 };

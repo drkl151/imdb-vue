@@ -10,19 +10,13 @@
 
       <div class="main-information__text-information">
         <h3 class="main-information__title">
-          {{
-            popularMovie.title.length > 23 && screenSize < 580
-              ? popularMovie.title.substring(0, 14) + "..."
-              : popularMovie.title.length > 18
-              ? popularMovie.title.substring(0, 18) + "..."
-              : popularMovie.title
-          }}
+          {{ calculateTitle }}
         </h3>
         <ul>
           <li>
             <p class="characteristic-name">year</p>
             <p class="characteristic">
-              {{ popularMovie.detalis.release_date.slice(0, 4) }}
+              {{ calculateYear }}
             </p>
           </li>
           <li>
@@ -34,14 +28,7 @@
           <li>
             <p class="characteristic-name">director</p>
             <p class="characteristic">
-              {{
-                popularMovie.detalis.production_companies[0].name.length > 17
-                  ? popularMovie.detalis.production_companies[0].name.slice(
-                      0,
-                      17
-                    ) + "..."
-                  : popularMovie.detalis.production_companies[0].name
-              }}
+              {{ calculateDirector }}
             </p>
           </li>
           <li>
@@ -49,42 +36,22 @@
             <p
               class="characteristic genre"
               :style="{
-                borderLeft: `3px solid ${getColorGenre(
+                borderLeft: `3px solid ${getColor(
                   popularMovie.detalis.genres[0].name.toLowerCase()
                 )}`,
               }"
             >
-              {{
-                screenSize < 530
-                  ? popularMovie.detalis.genres[0].name
-                      .toLowerCase()
-                      .slice(0, 6) + "..."
-                  : screenSize < 1130 && screenSize > 863
-                  ? popularMovie.detalis.genres[0].name
-                      .toLowerCase()
-                      .slice(0, 6) + "..."
-                  : popularMovie.detalis.genres[0].name.toLowerCase()
-              }}
+              {{ calculateFirstGenre }}
             </p>
             <p
               class="characteristic genre"
               :style="{
-                borderLeft: `3px solid ${getColorGenre(
+                borderLeft: `3px solid ${getColor(
                   popularMovie.detalis.genres[1].name.toLowerCase()
                 )}`,
               }"
             >
-              {{
-                screenSize < 530
-                  ? popularMovie.detalis.genres[1].name
-                      .toLowerCase()
-                      .slice(0, 6) + "..."
-                  : screenSize < 1130 && screenSize > 863
-                  ? popularMovie.detalis.genres[1].name
-                      .toLowerCase()
-                      .slice(0, 6) + "..."
-                  : popularMovie.detalis.genres[1].name.toLowerCase()
-              }}
+              {{ calculateSecondGenre }}
             </p>
           </li>
           <li>
@@ -101,11 +68,7 @@
 
     <div class="description">
       <p>
-        {{
-          popularMovie.overview.length > 380
-            ? popularMovie.overview.substring(0, 380) + "..."
-            : popularMovie.overview
-        }}
+        {{ calculateDescription }}
       </p>
     </div>
   </div>
@@ -113,12 +76,13 @@
 
 <script>
 import { mapGetters } from "vuex";
+import getColorGenre from "@/utils/getColorGenre";
 
 export default {
   props: {
     popularMovie: {
       type: Object,
-      reqared: true,
+      required: true,
     },
   },
 
@@ -126,57 +90,56 @@ export default {
     ...mapGetters({
       screenSize: "screenSize",
     }),
+
+    calculateTitle() {
+      return this.popularMovie.title.length > 23 && this.screenSize < 580
+        ? this.popularMovie.title.substring(0, 14) + "..."
+        : this.popularMovie.title.length > 18
+        ? this.popularMovie.title.substring(0, 18) + "..."
+        : this.popularMovie.title;
+    },
+
+    calculateYear() {
+      return this.popularMovie.detalis.release_date.slice(0, 4);
+    },
+
+    calculateDirector() {
+      return this.popularMovie.detalis.production_companies[0].name.length > 17
+        ? this.popularMovie.detalis.production_companies[0].name.slice(0, 17) +
+            "..."
+        : this.popularMovie.detalis.production_companies[0].name;
+    },
+
+    calculateFirstGenre() {
+      return this.screenSize < 530
+        ? this.popularMovie.detalis.genres[0].name.toLowerCase().slice(0, 6) +
+            "..."
+        : this.screenSize < 1130 && this.screenSize > 863
+        ? this.popularMovie.detalis.genres[0].name.toLowerCase().slice(0, 6) +
+          "..."
+        : this.popularMovie.detalis.genres[0].name.toLowerCase();
+    },
+
+    calculateSecondGenre() {
+      return this.screenSize < 530
+        ? this.popularMovie.detalis.genres[1].name.toLowerCase().slice(0, 6) +
+            "..."
+        : this.screenSize < 1130 && this.screenSize > 863
+        ? this.popularMovie.detalis.genres[1].name.toLowerCase().slice(0, 6) +
+          "..."
+        : this.popularMovie.detalis.genres[1].name.toLowerCase();
+    },
+
+    calculateDescription() {
+      return this.popularMovie.overview.length > 380
+        ? this.popularMovie.overview.substring(0, 380) + "..."
+        : this.popularMovie.overview;
+    },
   },
 
   methods: {
-    getColorGenre(genre) {
-      let colorGenre = "";
-
-      switch (genre) {
-        case "action":
-          colorGenre = "#ea4737";
-          break;
-        case "animation":
-          colorGenre = "#39fccb";
-          break;
-        case "adventure":
-          colorGenre = "#93e24a";
-          break;
-        case "drama":
-          colorGenre = "#772cd8";
-          break;
-        case "comedy":
-          colorGenre = "#d8b82c";
-          break;
-        case "fantasy":
-          colorGenre = "#d82c6e";
-          break;
-        case "thriller":
-          colorGenre = "#2998e2";
-          break;
-        case "war":
-          colorGenre = "#222cb4";
-          break;
-        case "western":
-          colorGenre = "#1c25a5";
-          break;
-        case "science fiction":
-          colorGenre = "#008d5e";
-          break;
-        case "crime":
-          colorGenre = "#af4f00";
-          break;
-        case "music":
-          colorGenre = "#8f0388";
-          break;
-        case "romance":
-          colorGenre = "#ff1eda";
-          break;
-        default:
-          colorGenre = "#ea4737";
-      }
-
-      return colorGenre;
+    getColor(genre) {
+      return getColorGenre(genre);
     },
   },
 };
