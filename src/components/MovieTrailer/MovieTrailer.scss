@@ -1,0 +1,75 @@
+@import "@/styles/global/general.scss";
+
+.movie-trailer-wrapper {
+  width: 60%;
+
+  .movie-trailer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border: 2px solid $c-faux_chinese_black;
+
+    .loader-movie-treiler {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &__poster {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      align-items: end;
+
+      .poster__play {
+        z-index: 60;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 53px;
+        height: 53px;
+        border: 2px solid rgba(255, 255, 255, 0.793308);
+        border-radius: 50%;
+
+        .play__img {
+          width: 20px;
+          height: 26px;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      .poster__text {
+        position: absolute;
+        color: $c-white;
+        z-index: 40;
+        margin: 0 0 10px 25px;
+
+        .text__title {
+          font-size: 32px;
+          margin: 0;
+        }
+
+        .text__year {
+          color: $c-pale_white;
+          display: inline;
+        }
+      }
+
+      .linear-gradient-block {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 6e-5) 64.13%, rgba(0, 0, 0, 0.6) 100%),
+          linear-gradient(0deg, rgba(0, 0, 0, 0.276863), rgba(0, 0, 0, 0.276863));
+      }
+    }
+  }
+}

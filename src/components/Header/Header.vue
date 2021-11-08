@@ -21,8 +21,9 @@
         autofocus
         color="black"
         filled
-        v-model="searchText"
+        v-model="valueSearchInput"
         label="Search"
+        v-debounce:600ms="getSearchResults"
       >
       </q-input>
 
@@ -37,31 +38,45 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+import { getDirective } from "vue-debounce";
+
 export default {
   data() {
     return {
-      searchText: "",
+      valueSearchInput: "",
       inputIsOpen: false,
     };
   },
 
   methods: {
+    ...mapActions(["GET_SEARCH_RESULTS_FROM_API"]),
+
     checkInput() {
       if (!this.inputIsOpen) {
         this.inputIsOpen = true;
       }
     },
+
     closeInput() {
-      if (!this.searchText) {
+      if (!this.valueSearchInput) {
         setTimeout(() => {
           this.$refs.searchInput.$el.classList.add("remove-input");
         }, 0);
 
         setTimeout(() => {
-          this.inputIsOpen = this.searchText ? true : false;
+          this.inputIsOpen = this.valueSearchInput ? true : false;
         }, 500);
       }
     },
+
+    getSearchResults() {
+      this.GET_SEARCH_RESULTS_FROM_API(this.valueSearchInput);
+    },
+  },
+
+  computed: {
+    ...mapGetters({ searchResults: "searchResults" }),
   },
 };
 </script>

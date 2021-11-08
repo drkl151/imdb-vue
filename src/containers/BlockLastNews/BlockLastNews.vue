@@ -32,7 +32,7 @@
         </li>
       </ul>
     </div>
-    <div class="block-last-news__loader" v-if="isLoading">
+    <div class="block-last-news__loader" v-if="loaderLastNews">
       <Loader size="50px" />
     </div>
 
@@ -75,7 +75,7 @@ export default {
     ...mapGetters({
       lastNews: "lastNews",
       categoryNews: "categoryNews",
-      isLoading: "isLoading",
+      loaderLastNews: "loaderLastNews",
       screenSize: "screenSize",
     }),
 

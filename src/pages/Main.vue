@@ -9,26 +9,29 @@
         <MoviePosterSlider />
       </div>
 
-      <!-- <SideHeader title="TRAILERS" backgroundColor="#EA4737" /> -->
-
-      <!-- <div class="block-with-components">
-      <BlockLastNews />
-
-      <div class="blocks-signed-image">
-        <BlockSignedImage
-          title="Popular actors"
-          redirectLink="Sea all actors"
-          :dataArray="displayPopularActorOnCurrentScreenSize"
-        />
-        <BlockSignedImage
-          title="Popular TV shows"
-          redirectLink="Sea all"
-          :dataArray="displayPopularMovieOnCurrentScreenSize"
-        />
+      <div class="block-treilers">
+        <SideHeader title="TRAILERS" backgroundColor="#EA4737" />
+        <MovieTrailerSlider />
       </div>
 
-      <BlockTodaysWallpaper /> -->
-      <!-- </div> -->
+      <!-- <div class="block-with-components">
+        <BlockLastNews />
+
+        <div class="blocks-signed-image">
+          <BlockSignedImage
+            title="Popular actors"
+            redirectLink="Sea all actors"
+            :dataArray="displayPopularActorOnCurrentScreenSize"
+          />
+          <BlockSignedImage
+            title="Popular TV shows"
+            redirectLink="Sea all"
+            :dataArray="displayPopularMovieOnCurrentScreenSize"
+          />
+        </div>
+
+        <BlockTodaysWallpaper />
+      </div> -->
     </div>
   </div>
 </template>
@@ -36,23 +39,21 @@
 <script>
 import Header from "@/components/Header/Header";
 import SideHeader from "@/components/SideHeader/SideHeader";
-import TodaysWallpaper from "@/components/TodaysWallpaper/TodaysWallpaper";
 import MoviePosterSlider from "@/containers/MoviePosterSlider/MoviePosterSlider";
+import TodaysWallpaper from "@/components/TodaysWallpaper/TodaysWallpaper";
 import BlockTodaysWallpaper from "@/containers/BlockTodaysWallpaper/BlockTodaysWallpaper";
 import BlockSignedImage from "@/containers/BlockSignedImage/BlockSignedImage";
 import BlockLastNews from "@/containers/BlockLastNews/BlockLastNews";
+import MovieTrailerSlider from "@/containers/MovieTrailerSlider/MovieTrailerSlider";
 
 import { mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
-  data() {
-    return {};
-  },
-
   components: {
     Header,
     SideHeader,
     MoviePosterSlider,
+    MovieTrailerSlider,
     TodaysWallpaper,
     BlockTodaysWallpaper,
     BlockSignedImage,
@@ -97,6 +98,7 @@ export default {
       genres: "genres",
       popularActors: "popularActors",
       screenSize: "screenSize",
+      popularMovies: "popularMovies",
     }),
 
     displayPopularActorOnCurrentScreenSize() {

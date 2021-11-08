@@ -1,0 +1,235 @@
+@import "@/styles/global/general.scss";
+
+.movie-treiler-slider {
+  overflow: hidden;
+  width: 100%;
+
+  .splide {
+    width: 100%;
+
+    .movie-treiler-loader {
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &__arrow--prev {
+      left: 5px;
+      transform: translateY(-50%) scaleX(-1);
+      display: none;
+    }
+
+    &__arrow--next {
+      right: 0px;
+    }
+
+    &__arrow {
+      width: 36px;
+      height: 395px;
+      border-radius: 0;
+      background: rgba(0, 0, 0, 0.33);
+
+      svg {
+        text-align: center;
+        position: relative;
+        top: 50px;
+        left: 50px;
+        transform: translate(-37px, -50px);
+        width: fit-content;
+        height: fit-content;
+        fill: #fff;
+      }
+    }
+
+    &__pagination {
+      left: 85%;
+
+      .splide__pagination__page {
+        width: 6px;
+        height: 6px;
+        background: $c-white;
+        margin-left: 12px;
+      }
+
+      .splide__pagination__page.is-active {
+        width: 7px;
+        height: 7px;
+        background: #ffffff00;
+        border: 2px solid $c-white;
+      }
+    }
+  }
+
+  &__slide {
+    display: flex;
+  }
+}
+
+@media all and (max-width: 1330px) {
+  .movie-treiler-slider {
+    .movie-trailer-information {
+      width: 50%;
+
+      ul {
+        li {
+          .characteristic {
+            font-size: 16px;
+          }
+
+          .characteristic-name {
+            margin-right: 22px;
+          }
+
+          .genre {
+            margin-right: 6px;
+          }
+        }
+      }
+    }
+
+    .description {
+      font-size: 15px;
+    }
+  }
+}
+
+@media all and (max-width: 1030px) {
+  .movie-treiler-slider {
+    .splide {
+      &__pagination {
+        display: none;
+      }
+
+      &__arrow {
+        height: 590px;
+      }
+    }
+
+    &__slide {
+      flex-direction: column;
+
+      .movie-trailer-wrapper {
+        width: 100%;
+        height: 340px;
+      }
+
+      .movie-trailer-information {
+        width: 100%;
+        height: 250px;
+        display: flex;
+        align-items: center;
+
+        &__main-information {
+          margin: 17px 10px 11px 16px;
+
+          .main-information__text-information {
+            .main-information__title {
+              width: 260px;
+              font-size: 25px;
+            }
+          }
+        }
+
+        ul {
+          li {
+            line-height: 0.9;
+          }
+        }
+      }
+
+      .description {
+        font-size: 17px;
+        margin: 0 40px 0 5px;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 880px) {
+  .movie-treiler-slider {
+    &__slide {
+      .movie-trailer-information {
+        justify-content: center;
+      }
+
+      .description {
+        display: none;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 500px) {
+  .movie-treiler-slider {
+    &__slide {
+      .movie-trailer {
+        &__poster {
+          background-position-x: -100px;
+
+          .poster__text {
+            margin: 0 0 10px 25px;
+
+            .text__title {
+              font-size: 24px;
+            }
+          }
+        }
+      }
+
+      .movie-trailer-information {
+        width: 100%;
+        height: 250px;
+
+        &__main-information {
+          .main-information__img {
+            width: 140px;
+            height: 195px;
+          }
+
+          .main-information__text-information {
+            margin-left: 14px;
+
+            .main-information__title {
+              width: 165px;
+              font-size: 22px;
+            }
+          }
+        }
+
+        ul {
+          li {
+            line-height: 0.75;
+
+            .characteristic-name {
+              margin-right: 3px;
+            }
+
+            .characteristic {
+              font-size: 14px;
+            }
+
+            .genre {
+              margin-right: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 410px) {
+  .movie-treiler-slider {
+    .movie-trailer-information {
+      &__main-information {
+        .characteristic-name {
+          min-width: 60px;
+        }
+
+        .main-information__img {
+          width: 110px;
+        }
+      }
+    }
+  }
+}
